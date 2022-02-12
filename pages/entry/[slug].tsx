@@ -8,6 +8,7 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { useState } from "react";
 import { PlantEntryInline } from "@components/PlantCollection"
 import { getCategoryList } from "@api/";
+import { useRouter } from "next/dist/client/router";
 
 
 /** type PlantEntryPageProps = {
@@ -34,7 +35,7 @@ export const getStaticPaths = async () => {
     return {
         paths,
         // 404 en las entradas no encontradas
-        fallback: false
+        fallback: 'blocking'
     }
 }
 
@@ -67,7 +68,8 @@ export const getStaticProps: GetStaticProps<PlantEntryPageProps> = async ({ para
                 plant,
                 otherEntries,
                 categories
-            }
+            },
+            revalidate: 5 * 60
         }
     } catch (e) {
         return {
@@ -78,7 +80,14 @@ export const getStaticProps: GetStaticProps<PlantEntryPageProps> = async ({ para
 }
 
 export default function PlantEntryPage({ plant, otherEntries, categories }: InferGetStaticPropsType<typeof getStaticProps>) {
+    
+    const router = useRouter()
 
+    if(router.isFallback) {
+        <Layout>
+            Loading awesomeness...
+        </Layout>
+    }
     return (
         <Layout>
             <Grid container spacing={4}>

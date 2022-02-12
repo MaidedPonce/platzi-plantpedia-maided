@@ -13,11 +13,11 @@ import * as selectors from './selectors'
 export type QueryStatus = 'idle' | 'loading' | 'success' | 'error'
 
 const client = new GraphQLClient(
-  `https://graphql.contentful.com/content/v1/spaces/${process.env.spaceId}`,
+  `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_SPACE_ID}`,
   {
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.accessToken}`,
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_ACCESS_TOKEN}`,
     },
   }
 )

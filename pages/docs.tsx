@@ -5,7 +5,7 @@ import { Typography } from '@ui/Typography'
 import { Layout } from '@components/Layout'
 import { getPlantList } from '@api/'
 
-const fetchPlants = () => fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.spaceId}`, {
+const fetchPlants = () => fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_SPACE_ID}`, {
   method: 'POST',
   headers: {
     'Content-type': 'application/json',

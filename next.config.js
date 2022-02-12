@@ -7,11 +7,9 @@ const config = {
   future: {
     webpack5: true,
   },
+  images: {
+    domains: ['images.ctfassets.net']
+  },
 }
 
-module.exports = {
-  env: {
-    spaceId: "6ihgyu9jzgdi",
-    accessToken: "3hhR7PafL1EN6rMJ7JgrpvDKdOwG-xpn67wOLIHmQGI"
-  }
-}
+module.exports = withBundleAnalyzer(config)
