@@ -1,5 +1,6 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
+
 })
 
 const config = {
@@ -8,4 +9,9 @@ const config = {
   },
 }
 
-module.exports = withBundleAnalyzer(config)
+module.exports = {
+  env: {
+    spaceId: "6ihgyu9jzgdi",
+    accessToken: "3hhR7PafL1EN6rMJ7JgrpvDKdOwG-xpn67wOLIHmQGI"
+  }
+}
