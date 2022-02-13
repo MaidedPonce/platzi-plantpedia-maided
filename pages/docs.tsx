@@ -3,9 +3,9 @@ import { Grid } from '@ui/Grid'
 import { Button } from '@ui/Button'
 import { Typography } from '@ui/Typography'
 import { Layout } from '@components/Layout'
-import { getPlantList } from '@api/'
+import { getPlantList } from '@api'
 
-const fetchPlants = () => fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_SPACE_ID}`, {
+/* const fetchPlants = () => fetch(`https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_SPACE_ID}`, {
   method: 'POST',
   headers: {
     'Content-type': 'application/json',
@@ -24,7 +24,7 @@ const fetchPlants = () => fetch(`https://graphql.contentful.com/content/v1/space
     }
   }
   `})
-})
+}) */
 
 export default function Home() {
 
